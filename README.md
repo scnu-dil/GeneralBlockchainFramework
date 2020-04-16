@@ -1,0 +1,3 @@
+# GeneralBlockchainFramework
+用于SCNU-DIL实验室的区块链项目通用框架
+是后面搭建各级应用的底层依托.
