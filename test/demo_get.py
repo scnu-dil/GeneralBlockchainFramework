@@ -24,10 +24,6 @@ try:
 
 
 
-
-
-
-
 except BcosError as e:
     print("bcos client error,",e.info())
 

@@ -64,6 +64,9 @@ inputresult = data_parser.parse_transaction_input(txresponse['input'])
 print("transaction input parse:",txhash)
 print(inputresult)
 
+
+
+
 #解析该交易在receipt里输出的output,即交易调用的方法的return值
 outputresult  = data_parser.parse_receipt_output(inputresult['name'], receipt['output'])
 print("receipt output :",outputresult)
