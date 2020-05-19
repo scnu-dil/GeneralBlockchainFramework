@@ -1,1 +1,65 @@
+区块链建链日志文档说明
+参考官网技术文档链接如下：https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/enterprise_tools/tutorial_one_click.html#id6
+首先根据指示完成下载安装部分。
 
+下面来看一下我们的节点组网拓扑结构，我们旨在建立一条三服务器三节点单群组的区块联盟链。
+
+机器环境及每个节点的IP和端口号如下：
+
+万分注意的一点就是每一个机构对应于一台服务器，IP地址为服务器内网IP地址。
+接下来从部署网络开始，是建链的实战操作。
+
+##1：查看一键部署模板文件夹
+cd ~/generator
+ls ./tmp_one_click
+注意：
+为了适应自己的组网需求，在/tmp_one_click文件夹下面，新建了机构C。
+mkdir agencyC
+cp agencyA/node_deployment.ini  agencyC/
+
+##2：机构填写节点信息
+机构A和机构B和机构C都只是一个节点，故配置文件按以下格式：
+
+2.1：vi ./tmp_one_click/agencyA/node_deployment.ini
+文件里面默认有两节点，删除一个即可，注意端口号与上表中项目的端口号一致
+
+2.2：vi ./tmp_one_click/agencyB/node_deployment.ini
+
+2.3：vi ./tmp_one_click/agencyC/node_deployment.ini
+
+##3：生成节点(生成全部节点，即node0、node1、node2）
+bash ./one_click_generator.sh -b ./tmp_one_click
+
+3.1：查看一下部署模板文件夹结构
+ls ./tmp_one_click
+ls ./tmp_one_click/agencyA/
+
+##4：推送agencyB和agencyC到其他物理机
+4.1：scp -r  agencyB/  root@172.24.234.85:~/
+4.2：scp -r  agencyC/  root@172.24.234.84:~/
+172是机构B/C的物理IP
+
+##5：启动节点(A/B/C一样，以C为例。）
+cd ~/agencyC/node
+./start_all.sh
+
+##6：部署控制台
+一条链可以有多个控制台，但是没必要每个服务器上都部署，这里为了验证共识，在机构A/B上部署控制台。
+6.1：进入机构的/generator-agency文件夹
+6.1.1：机构A
+cd ~/generator/tmp_one_click/agencyA/generator-agency
+6.1.2：机构B
+cd ~/agencyB/generator-agency
+6.2：拉取控制台
+./generator --download_console ./ --cdn
+6.3：启动控制台
+6.3.1：机构A
+cd ~/generator/tmp_one_click/agencyA/generator-agency/console && bash ./start.sh 1
+6.3.1：机构B
+cd ~/agencyB/generator-agency/console && bash ./start.sh 1
+此处的命令的末尾的1是指群组1
+
+##7：控制台查看链内节点
+getPeers
+
+三服务器三节点单群组的区块联盟链搭链成功~~
