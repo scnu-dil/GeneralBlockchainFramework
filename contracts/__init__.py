@@ -10,6 +10,8 @@ from client.bcoserror import BcosException, BcosError
 from eth_utils import to_checksum_address
 from client.contractnote import ContractNote
 
+from client.common.transaction_common import TransactionCommon
+
 class ContractManager(object):
 
     def __init__(self, sol_file, abi_file, bin_file, DEBUG=True):
@@ -36,8 +38,8 @@ class ContractManager(object):
             return True, address
 
     def getContractInfo(self, contractAddress):
-        contract_abi = None
-        contract_info = None
+        contract_info = self.client.getTransactionByHash(contractAddress)
+        contract_abi = TransactionCommon.gen_contract_abi(self.abi_file)
         return contract_abi, contract_info
 
 
