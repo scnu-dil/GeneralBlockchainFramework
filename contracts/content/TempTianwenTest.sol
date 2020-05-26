@@ -8,6 +8,7 @@ contract TianwenTest {
     event InsertResult(int count);
 
 
+    // 拓展性不足的
     struct Record {
         string item_Element;
         string item_N_line;
@@ -56,7 +57,6 @@ contract TianwenTest {
             records_list[uint256(i)].item_C_XFe = entry.getString("item_C_XFe");
             records_list[uint256(i)].item_C_loge = entry.getString("item_C_loge");
         }
-
 
 
         return records_list;
