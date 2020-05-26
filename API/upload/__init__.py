@@ -3,6 +3,7 @@
 
 import flask_restful as restful
 from flask_restful import reqparse, abort, Api, Resource
+from error_code import *
 
 parser = reqparse.RequestParser()
 parser.add_argument('item_N_line', type=str)
@@ -49,6 +50,8 @@ def get_args(args,id,key):
     return temp
 
 class Upload(Resource):
+
+    # if TEMS[item_Element] is null return 404 error msg and 404
     def get(self, item_Element):
         abort_if_item_exist(item_Element)
         return ITEMS[item_Element]
@@ -65,7 +68,7 @@ class Upload(Resource):
         item_C_XFe = get_args(args,item_Element,'item_C_XFe')
         item_C_loge = get_args(args,item_Element,'item_C_loge')
 
-        new_item_Element = {'item_N_line' :item_N_line ,'item_O_XH':item_O_XH,'item_O_XFe' :item_O_XFe,' item_O_loge' :item_O_XFe,'item_C_XH' :item_C_XH,'item_C_XFe':item_C_XFe,'item_C_loge':item_C_loge}
+        new_item_Element = {'item_N_line' :item_N_line ,'item_O_XH':item_O_XH,'item_O_XFe' :item_O_XFe,' item_O_loge' :item_O_loge,'item_C_XH' :item_C_XH,'item_C_XFe':item_C_XFe,'item_C_loge':item_C_loge}
 
         ITEMS[item_Element] = new_item_Element
 
