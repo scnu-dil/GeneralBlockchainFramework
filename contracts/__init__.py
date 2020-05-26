@@ -1,14 +1,14 @@
 # coding=utf-8
 
-from thirdParty.sdk.client.bcosclient import BcosClient
+from client.bcosclient import BcosClient
 import os
-from thirdParty.sdk.client.stattool import StatTool
-from thirdParty.sdk.client.datatype_parser import DatatypeParser
-from thirdParty.sdk.client.common.compiler import Compiler
-from thirdParty.sdk.client_config import client_config
-from thirdParty.sdk.client.bcoserror import BcosException, BcosError
+from client.stattool import StatTool
+from client.datatype_parser import DatatypeParser
+from client.common.compiler import Compiler
+from client_config import client_config
+from client.bcoserror import BcosException, BcosError
 from eth_utils import to_checksum_address
-from thirdParty.sdk.client.contractnote import ContractNote
+from client.contractnote import ContractNote
 
 class ContractManager(object):
 
@@ -35,6 +35,12 @@ class ContractManager(object):
         else:
             return True, address
 
+    def getContractInfo(self, contractAddress):
+        contract_abi = None
+        contract_info = None
+        return contract_abi, contract_info
+
+
     def deploy(self):
         contract_abi = self.data_parser.contract_abi
 
@@ -46,18 +52,20 @@ class ContractManager(object):
             contract_bin = load_f.read()
             load_f.close()
 
-        result = self.client.deploy(contract_bin)
+        contract_info = self.client.deploy(contract_bin)
 
         if self.DEBUG:
-            print("deploy", result)
-            print("new address : ", result["contractAddress"])
+            print("deploy", contract_info)
+            print("new address : ", contract_info["contractAddress"])
 
         contract_name = os.path.splitext(os.path.basename(self.abi_file))[0]
-        memo = "tx:" + result["transactionHash"]
+        memo = "tx:" + contract_info["transactionHash"]
 
         # 把部署结果存入文件备查
-        ContractNote.save_address(contract_name, result["contractAddress"], int(result["blockNumber"], 16), memo)
-        return contract_abi, result
+        ContractNote.save_address(contract_name, contract_info["contractAddress"], int(contract_info["blockNumber"], 16), memo)
+        ContractNote.save_contract_address(contract_name, contract_info["contractAddress"])
+
+        return contract_abi, contract_info
 
     # url = "http://47.113.185.200/group1/M00/00/00/rBjqU16nnLiASd4YAMVnXomRO6M785.mp4"
     # hashvalue = "c3c93aae6dbed266a0dc55a517960273bc0b79c5ca13afe9ca5ab2d3825540f4"
@@ -97,11 +105,12 @@ class ContractManager(object):
 
         # 调用一下call，获取数据
         try:
-            res = self.client.call(contract_address, contract_abi, method, args)
-            return True, args
+            response = self.client.call(contract_address, contract_abi, method, args)
+            return True, response
         except:
             import traceback
             return False, "call contract error"
+
 
 
 
