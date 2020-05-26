@@ -28,6 +28,13 @@ class ContractManager(object):
         if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
             Compiler.compile_file(self.sol_file)
 
+    def checkContractExit(self, contract_name):
+        address = ContractNote.get_contract_addresses(contract_name)
+        if address is None:
+            return False, None
+        else:
+            return True, address
+
     def deploy(self):
         contract_abi = self.data_parser.contract_abi
 
