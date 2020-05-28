@@ -51,7 +51,6 @@ class DatatypeParser:
             load_f.close()
             self.set_abi(contract_abi)
 
-
     def parse_abi(self):
         '''for item in self.contract_abi:
             if (item["type"] != "constructor"):
