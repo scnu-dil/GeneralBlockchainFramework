@@ -1,16 +1,14 @@
 #coding=UTF-8
-import sys
-sys.path.append('..')
+
 from contracts import ContractManager
 import json
 import traceback
 
-path = '/root/GeneralBlockchainFramework/contracts/contracts/'
+path = 'contracts/contracts/'
 
 class Tianwen(object):
     def __init__(self, contract_name = 'TianwenKV', sol_file=path+'TianwenKV.sol', abi_file=path+'TianwenKV.abi', bin_file=path+'TianwenKV.bin'):
 
-        print ("sol_file:", sol_file)
         self.contractManager = ContractManager(sol_file, abi_file, bin_file, DEBUG=True)
         # checkContractExit这个函数出问题了
         result, self.contractAddress = self.contractManager.checkContractExit(contract_name)
