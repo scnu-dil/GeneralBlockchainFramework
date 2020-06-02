@@ -23,17 +23,17 @@ from client.bcoserror import BcosException, BcosError
 from client.bcoserror import CompilerNotFound, CompileError
 
 # 从文件加载abi定义
+contractPath = "./contracts/contracts"
 if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
     # Compiler.compile_file("contracts/HelloWorld.sol")
     try:
-        Compiler.compile_file("./contracts/contracts/traffic.sol", "contracts")
+        Compiler.compile_file(contractPath + "/traffic.sol", contractPath)
     except CompileError:
         print (CompileError)
 else:
     print (__file__)
 
-
-abi_file = "contracts/contracts/traffic.abi"
+abi_file = contractPath + "/traffic.abi"
 data_parser = DatatypeParser()
 data_parser.load_abi_file(abi_file)
 contract_abi = data_parser.contract_abi
