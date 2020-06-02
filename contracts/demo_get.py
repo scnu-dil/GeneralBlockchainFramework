@@ -26,12 +26,12 @@ from client.bcoserror import CompilerNotFound, CompileError
 if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
     # Compiler.compile_file("contracts/HelloWorld.sol")
     try:
-        Compiler.compile_file("contracts/SimpleInfo.sol")
+        Compiler.compile_file("contracts/traffic.sol")
     except CompileError:
         print (CompileError)
 
 
-abi_file = "contracts/SimpleInfo.abi"
+abi_file = "contracts/traffic.abi"
 data_parser = DatatypeParser()
 data_parser.load_abi_file(abi_file)
 contract_abi = data_parser.contract_abi
