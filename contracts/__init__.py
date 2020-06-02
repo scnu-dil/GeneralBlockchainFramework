@@ -5,16 +5,15 @@ import sys
 Path = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(Path)
 
-from thirdParty.sdk.client.bcosclient import BcosClient
-from thirdParty.sdk.client.stattool import StatTool
-from thirdParty.sdk.client.datatype_parser import DatatypeParser
-from thirdParty.sdk.client.common.compiler import Compiler
-from thirdParty.sdk.client_config import client_config
-from thirdParty.sdk.client.bcoserror import BcosException, BcosError
-from thirdParty.sdk.eth_utils import to_checksum_address
-from thirdParty.sdk.client.contractnote import ContractNote
-
-from thirdParty.sdk.client.common.transaction_common import TransactionCommon
+from contracts.client.bcosclient import BcosClient
+from contracts.client.stattool import StatTool
+from contracts.client.datatype_parser import DatatypeParser
+from contracts.client.common.compiler import Compiler
+from contracts.client_config import client_config
+from contracts.client.bcoserror import BcosException, BcosError
+from contracts.eth_utils import to_checksum_address
+from contracts.client.contractnote import ContractNote
+from contracts.client.common.transaction_common import TransactionCommon
 
 class ContractManager(object):
 
