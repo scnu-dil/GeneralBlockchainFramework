@@ -26,6 +26,10 @@ class ContractManager(object):
         self.DEBUG = DEBUG
 
         self.data_parser = DatatypeParser()
+
+        if os.path.isfile(self.abi_file):
+            self.compile()
+
         self.data_parser.load_abi_file(self.abi_file)
 
 
