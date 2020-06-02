@@ -15,7 +15,6 @@ from contracts.eth_utils import to_checksum_address
 from contracts.client.contractnote import ContractNote
 from contracts.client.common.transaction_common import TransactionCommon
 from client.bcoserror import CompilerNotFound, CompileError
-from contracts.moduels import Tianwen
 
 
 
@@ -132,13 +131,7 @@ class ContractManager(object):
             return False, "call contract error"
 
 
-class ContractFactory(object):
 
-    def __init__(self):
-        self.tianwen = Tianwen.Tianwen()
-
-    def getTianwen(self):
-        return self.tianwen
 
 
 
