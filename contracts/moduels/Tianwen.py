@@ -1,7 +1,7 @@
 #coding=UTF-8
 import sys
 sys.path.append('..')
-from temp import ContractManager
+from contracts import ContractManager
 import json
 import traceback
 
