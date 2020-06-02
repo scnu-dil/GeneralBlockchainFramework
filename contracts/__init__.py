@@ -1,8 +1,11 @@
 # coding=utf-8
-import sys 
-sys.path.append('..')
-from thirdParty.sdk.client.bcosclient import BcosClient
 import os
+import sys
+
+Path = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(Path)
+
+from thirdParty.sdk.client.bcosclient import BcosClient
 from thirdParty.sdk.client.stattool import StatTool
 from thirdParty.sdk.client.datatype_parser import DatatypeParser
 from thirdParty.sdk.client.common.compiler import Compiler
