@@ -20,11 +20,17 @@ from client.datatype_parser import DatatypeParser
 from client.common.compiler import Compiler
 from client_config import client_config
 from client.bcoserror import BcosException, BcosError
+from client.bcoserror import CompilerNotFound, CompileError
 
 # 从文件加载abi定义
 if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
     # Compiler.compile_file("contracts/HelloWorld.sol")
-    Compiler.compile_file("contracts/SimpleInfo.sol")
+    try:
+        Compiler.compile_file("contracts/SimpleInfo.sol")
+    except CompileError:
+        print (CompileError)
+
+
 abi_file = "contracts/SimpleInfo.abi"
 data_parser = DatatypeParser()
 data_parser.load_abi_file(abi_file)
