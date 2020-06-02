@@ -43,6 +43,7 @@ class ContractManager(object):
                 print (CompileError)
         else:
             print (client_config.solc_path)
+            print (client_config.solcjs_path)
 
     def checkContractExit(self, contract_name):
         address = ContractNote.get_contract_addresses(contract_name)
