@@ -5,7 +5,7 @@ from contracts import ContractManager
 import json
 import traceback
 
-path = '/root/GeneralBlockchainFramework/temp/content/'
+path = '/root/GeneralBlockchainFramework/contracts/contracts/'
 
 class Tianwen(object):
     def __init__(self, contract_name = 'TianwenKV', sol_file=path+'TianwenKV.sol', abi_file=path+'TianwenKV.abi', bin_file=path+'TianwenKV.bin'):
