@@ -14,6 +14,8 @@ from contracts.client.bcoserror import BcosException, BcosError
 from contracts.eth_utils import to_checksum_address
 from contracts.client.contractnote import ContractNote
 from contracts.client.common.transaction_common import TransactionCommon
+from client.bcoserror import CompilerNotFound, CompileError
+
 
 class ContractManager(object):
 
@@ -35,7 +37,12 @@ class ContractManager(object):
 
     def compile(self):
         if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
-            Compiler.compile_file(self.sol_file)
+            try:
+                Compiler.compile_file(self.sol_file, output_path="contracts/contracts")
+            except CompileError:
+                print (CompileError)
+        else:
+            print (__file__)
 
     def checkContractExit(self, contract_name):
         address = ContractNote.get_contract_addresses(contract_name)
