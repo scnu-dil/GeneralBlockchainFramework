@@ -17,13 +17,7 @@ from contracts.client.common.transaction_common import TransactionCommon
 from client.bcoserror import CompilerNotFound, CompileError
 from contracts.moduels import Tianwen
 
-class ContractFactory(object):
 
-    def __init__(self):
-        self.tianwen = Tianwen.Tianwen()
-
-    def getTianwen(self):
-        return self.tianwen
 
 
 class ContractManager(object):
@@ -137,6 +131,14 @@ class ContractManager(object):
             import traceback
             return False, "call contract error"
 
+
+class ContractFactory(object):
+
+    def __init__(self):
+        self.tianwen = Tianwen.Tianwen()
+
+    def getTianwen(self):
+        return self.tianwen
 
 
 
