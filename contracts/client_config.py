@@ -26,7 +26,7 @@ class client_config:
     remote_rpcurl = "http://172.24.234.85:8545"  # 采用rpc通信时，节点的rpc端口,和要通信的节点*必须*一致,如采用channel协议通信，这里可以留空
     channel_host = "172.24.234.85"  # 采用channel通信时，节点的channel ip地址,如采用rpc协议通信，这里可以留空
     channel_port = 20201  # 节点的channel 端口,如采用rpc协议通信，这里可以留空
-    channel_ca = "./contractsbin/ca.crt"  # 采用channel协议时，需要设置链证书,如采用rpc协议通信，这里可以留空
+    channel_ca = "./contract/sbin/ca.crt"  # 采用channel协议时，需要设置链证书,如采用rpc协议通信，这里可以留空
     channel_node_cert = "./contracts/bin/sdk.crt"  # 采用channel协议时，需要设置sdk证书,如采用rpc协议通信，这里可以留空
     channel_node_key = "./contracts/bin/sdk.key"   # 采用channel协议时，需要设置sdk私钥,如采用rpc协议通信，这里可以留空
     # ---------console mode, support user input--------------
