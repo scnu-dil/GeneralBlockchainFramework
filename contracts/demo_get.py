@@ -29,6 +29,8 @@ if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcj
         Compiler.compile_file("contracts/traffic.sol")
     except CompileError:
         print (CompileError)
+else:
+    print (__file__)
 
 
 abi_file = "contracts/traffic.abi"
