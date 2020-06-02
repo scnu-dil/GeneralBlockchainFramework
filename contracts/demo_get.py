@@ -26,7 +26,7 @@ from client.bcoserror import CompilerNotFound, CompileError
 if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
     # Compiler.compile_file("contracts/HelloWorld.sol")
     try:
-        Compiler.compile_file("contracts/traffic.sol")
+        Compiler.compile_file("contracts/traffic.sol", "contracts")
     except CompileError:
         print (CompileError)
 else:
