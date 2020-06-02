@@ -1,12 +1,14 @@
-
-
-from contracts import ContractManager
+#coding=UTF-8
+import sys
+sys.path.append('..')
+from temp import ContractManager
 import json
 import traceback
 
+path = '/root/GeneralBlockchainFramework/temp/content/'
 
 class Tianwen(object):
-    def __init__(self, contract_name = 'TianwenKV', sol_file='contracts/TianwenKV.sol', abi_file='contracts/TianwenKV.abi', bin_file='contracts/TianwenKV.bin'):
+    def __init__(self, contract_name = 'TianwenKV', sol_file=path+'TianwenKV.sol', abi_file=path+'TianwenKV.abi', bin_file=path+'TianwenKV.bin'):
 
         self.contractManager = ContractManager(sol_file, abi_file, bin_file, DEBUG=True)
         # checkContractExit这个函数出问题了

@@ -1,16 +1,17 @@
 # coding=utf-8
-
-from client.bcosclient import BcosClient
+import sys 
+sys.path.append('..')
+from thirdParty.sdk.client.bcosclient import BcosClient
 import os
-from client.stattool import StatTool
-from client.datatype_parser import DatatypeParser
-from client.common.compiler import Compiler
-from client_config import client_config
-from client.bcoserror import BcosException, BcosError
-from eth_utils import to_checksum_address
-from client.contractnote import ContractNote
+from thirdParty.sdk.client.stattool import StatTool
+from thirdParty.sdk.client.datatype_parser import DatatypeParser
+from thirdParty.sdk.client.common.compiler import Compiler
+from thirdParty.sdk.client_config import client_config
+from thirdParty.sdk.client.bcoserror import BcosException, BcosError
+from thirdParty.sdk.eth_utils import to_checksum_address
+from thirdParty.sdk.client.contractnote import ContractNote
 
-from client.common.transaction_common import TransactionCommon
+from thirdParty.sdk.client.common.transaction_common import TransactionCommon
 
 class ContractManager(object):
 

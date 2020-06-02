@@ -1,6 +1,6 @@
 
 
-from contracts.moduels.Tianwen import Tianwen
+from moduels.Tianwen import Tianwen
 
 record = {
     "item_Element": "SDFSDFDSFSDF",
