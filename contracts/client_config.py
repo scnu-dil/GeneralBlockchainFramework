@@ -13,13 +13,13 @@ class client_config:
     PROTOCOL_CHANNEL = "channel"
     # --------------------------------------
     # configure below
-    contract_info_file = "./contracts/bin/contract.ini"  # 保存已部署合约信息的文件
-    account_keyfile_path = "./contracts/bin/accounts"  # 保存keystore文件的路径，在此路径下,keystore文件以 [name].keystore命名
+    contract_info_file = "bin/contract.ini"  # 保存已部署合约信息的文件
+    account_keyfile_path = "bin/accounts"  # 保存keystore文件的路径，在此路径下,keystore文件以 [name].keystore命名
     account_keyfile = "pyaccount.keystore"
     account_password = "123456"  # 实际使用时建议改为复杂密码
     fiscoChainId = 1  # 链ID，和要通信的节点*必须*一致
     groupid = 1  # 群组ID，和要通信的节点*必须*一致，如和其他群组通信，修改这一项，或者设置bcosclient.py里对应的成员变量
-    logdir = "./contracts/bin/logs"  # 默认日志输出目录，该目录必须先建立
+    logdir = "bin/logs"  # 默认日志输出目录，该目录必须先建立
     # ---------client communication config--------------
     client_protocol = "channel"  # or PROTOCOL_CHANNEL to use channel prototol
     # client_protocol = PROTOCOL_CHANNEL
@@ -27,14 +27,14 @@ class client_config:
     channel_host = "172.24.234.85"  # 采用channel通信时，节点的channel ip地址,如采用rpc协议通信，这里可以留空
     channel_port = 20201  # 节点的channel 端口,如采用rpc协议通信，这里可以留空
     channel_ca = "./contract/sbin/ca.crt"  # 采用channel协议时，需要设置链证书,如采用rpc协议通信，这里可以留空
-    channel_node_cert = "./contracts/bin/sdk.crt"  # 采用channel协议时，需要设置sdk证书,如采用rpc协议通信，这里可以留空
-    channel_node_key = "./contracts/bin/sdk.key"   # 采用channel协议时，需要设置sdk私钥,如采用rpc协议通信，这里可以留空
+    channel_node_cert = "bin/sdk.crt"  # 采用channel协议时，需要设置sdk证书,如采用rpc协议通信，这里可以留空
+    channel_node_key = "bin/sdk.key"   # 采用channel协议时，需要设置sdk私钥,如采用rpc协议通信，这里可以留空
     # ---------console mode, support user input--------------
     background = True
     # ---------compiler related--------------
     # path of solc compiler
     solc_path = os.environ["HOME"] + "/.py-solc/solc-v0.4.25/bin/solc"
-    solcjs_path = "./contracts/solcjs"
+    solcjs_path = "solcjs"
 
 
 
