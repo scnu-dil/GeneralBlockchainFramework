@@ -13,7 +13,8 @@ record = {
     "item_C_loge": "item_C_loge"
 }
 
-txHash = Tianwen.set(record['item_Element'], record['item_N_line'], record['item_O_XH'], record['item_O_XFe'], record['item_O_loge'], record['item_C_XH'], record['item_C_XFe'], record['item_C_loge'])
+tianwen = Tianwen()
+txHash = tianwen.set(record['item_Element'], record['item_N_line'], record['item_O_XH'], record['item_O_XFe'], record['item_O_loge'], record['item_C_XH'], record['item_C_XFe'], record['item_C_loge'])
 
 print (txHash)
 
