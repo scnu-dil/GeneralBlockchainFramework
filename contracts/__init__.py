@@ -1,9 +1,5 @@
 # coding=utf-8
-import os
-import sys
 
-Path = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(Path)
 
 from contracts.client.bcosclient import BcosClient
 from contracts.client.stattool import StatTool
