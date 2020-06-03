@@ -1,4 +1,8 @@
 
+import sys
+
+path = "/root/GeneralBlockchainFramework"
+sys.path.append(path)
 
 from flask import Flask
 import flask_restful as restful
