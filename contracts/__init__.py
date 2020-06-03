@@ -1,6 +1,6 @@
 # coding=utf-8
 
-
+import os
 from contracts.client.bcosclient import BcosClient
 from contracts.client.stattool import StatTool
 from contracts.client.datatype_parser import DatatypeParser
