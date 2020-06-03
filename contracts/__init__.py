@@ -30,6 +30,8 @@ class ContractManager(object):
 
         self.data_parser.load_abi_file(self.abi_file)
 
+        self.contractInfo = TransactionCommon()
+
 
     def compile(self):
         if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
@@ -50,8 +52,9 @@ class ContractManager(object):
             return True, address[0]
 
     def getContractInfo(self, contractAddress):
+        print ()
         contract_info = self.client.getTransactionByHash(contractAddress)
-        contract_abi = TransactionCommon.gen_contract_abi(self.abi_file)
+        contract_abi = self.data_parser.contract_abi
         return contract_abi, contract_info
 
 
