@@ -3,7 +3,6 @@
 
 import flask_restful as restful
 from flask_restful import reqparse, abort, Api, Resource
-from error_code import *
 from contracts.moduels import Tianwen
 
 parser = reqparse.RequestParser()

@@ -1,9 +1,4 @@
 # coding=utf-8
-import os
-import sys
-
-Path = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(Path)
 
 from contracts.client.bcosclient import BcosClient
 from contracts.client.stattool import StatTool
@@ -15,8 +10,6 @@ from contracts.eth_utils import to_checksum_address
 from contracts.client.contractnote import ContractNote
 from contracts.client.common.transaction_common import TransactionCommon
 from client.bcoserror import CompilerNotFound, CompileError
-
-
 
 
 class ContractManager(object):
