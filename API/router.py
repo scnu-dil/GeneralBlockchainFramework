@@ -8,9 +8,9 @@ sys.path.append("/root/GeneralBlockchainFramework/contracts")
 from flask import Flask
 import flask_restful as restful
 
-from upload import *
-from hello import *
-from todo import *
+from API.upload import *
+from API.hello import *
+from API.todo import *
 from static import *
 
 app = Flask(__name__)
