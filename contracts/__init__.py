@@ -46,12 +46,15 @@ class ContractManager(object):
         if address is None:
             return False, None
         else:
-            return True, address
+            # 暂时返回低一个就可以了
+            return True, address[0]
 
     def getContractInfo(self, contractAddress):
         contract_info = self.client.getTransactionByHash(contractAddress)
         contract_abi = TransactionCommon.gen_contract_abi(self.abi_file)
         return contract_abi, contract_info
+
+
 
 
     def deploy(self):
