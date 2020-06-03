@@ -30,8 +30,6 @@ class ContractManager(object):
 
         self.data_parser.load_abi_file(self.abi_file)
 
-        self.contractInfo = TransactionCommon()
-
 
     def compile(self):
         if os.path.isfile(client_config.solc_path) or os.path.isfile(client_config.solcjs_path):
