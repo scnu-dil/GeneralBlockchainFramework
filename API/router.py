@@ -5,6 +5,7 @@ import flask_restful as restful
 from upload import *
 from hello import *
 from todo import *
+from static import *
 
 app = Flask(__name__)
 api = restful.Api(app)
