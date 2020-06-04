@@ -11,7 +11,7 @@ import flask_restful as restful
 from API.upload import *
 from API.hello import *
 from API.todo import *
-from static import *
+from API.static import *
 
 app = Flask(__name__)
 api = restful.Api(app)
