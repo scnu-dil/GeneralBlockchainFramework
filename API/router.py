@@ -15,7 +15,7 @@ app = Flask(__name__)
 api = restful.Api(app)
 
 
-api.add_resource(Upload, '/astronomy/upload/<item_Element>')
+api.add_resource(Upload, '/upload/<item_Element>')
 
 
 if __name__ == '__main__':
