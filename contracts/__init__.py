@@ -94,7 +94,8 @@ class ContractManager(object):
         # 发送交易，调用一个改写数据的接口
         if self.DEBUG:
             print("\n>>sendRawTransaction:----------------------------------------------------------")
-            print (to_address)
+            print ("to_address", to_address)
+            print ("contract_abi", contract_abi)
 
         receipt = self.client.sendRawTransactionGetReceipt(to_address, contract_abi, "set", args)
         txhash = receipt['transactionHash']
