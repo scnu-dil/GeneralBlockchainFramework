@@ -58,7 +58,7 @@ class Upload(Resource):
 
 
         # tianwen = Tianwen(
-        tsHash = tianwen.set(item_Element, new_item_Element['item_N_line'], new_item_Element['item_O_XH'], new_item_Element['item_O_XFe'], new_item_Element['item_O_loge'], new_item_Element['item_C_XH'], new_item_Element['item_C_XFe'], new_item_Element['item_C_loge'])
+        tsHash = tianwen.set(item_Element, new_item_Element['item_N_line'], new_item_Element['item_O_XH'], new_item_Element['item_O_XFe'], "105", new_item_Element['item_C_XH'], new_item_Element['item_C_XFe'], new_item_Element['item_C_loge'])
 
         # tsHash = "txHash"
         ITEMS["tsHash"] = tsHash
