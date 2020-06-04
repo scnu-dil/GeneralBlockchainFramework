@@ -50,9 +50,8 @@ class ContractManager(object):
             return True, address[0]
 
     def getContractInfo(self, contractAddress):
-        contract_info = self.client.getTransactionByHash(contractAddress)
         contract_abi = self.data_parser.contract_abi
-        return contract_abi, contract_info
+        return contract_abi, contractAddress
 
 
 
@@ -87,9 +86,7 @@ class ContractManager(object):
     # hashvalue = "c3c93aae6dbed266a0dc55a517960273bc0b79c5ca13afe9ca5ab2d3825540f4"
     # args = [url, hashvalue]
 
-    def transaction(self, contract_abi, contract_info, args):
-        to_address = contract_info['contractAddress']  # use new deploy address
-
+    def transaction(self, contract_abi, to_address, args):
         # 发送交易，调用一个改写数据的接口
         if self.DEBUG:
             print("\n>>sendRawTransaction:----------------------------------------------------------")

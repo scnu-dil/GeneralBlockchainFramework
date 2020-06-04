@@ -16,7 +16,7 @@ class Tianwen(object):
             self.contract_abi, self.contract_info = self.contractManager.deploy()
             self.contractAddress = self.contract_info["contractAddress"]
         else:
-            self.contract_abi, self.contract_info = self.contractManager.getContractInfo(self.contractAddress)
+            self.contract_abi, self.contractAddress = self.contractManager.getContractInfo(self.contractAddress)
 
     # try, catch
     def constructJsonRecord(self, item_Element, item_N_line, item_O_XH, item_O_XFe, item_O_loge, item_C_XH, item_C_XFe, item_C_loge):
@@ -36,7 +36,7 @@ class Tianwen(object):
         JsonRecord = self.constructJsonRecord(item_Element, item_N_line, item_O_XH, item_O_XFe, item_O_loge, item_C_XH, item_C_XFe, item_C_loge)
         args = [item_Element, JsonRecord]
         try:
-            txhash = self.contractManager.transaction(self.contract_abi, self.contract_info, args)
+            txhash = self.contractManager.transaction(self.contract_abi, self.contractAddress, args)
             return txhash
         except:
             traceback.print_exc()
