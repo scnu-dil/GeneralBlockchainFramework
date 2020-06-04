@@ -50,7 +50,6 @@ class ContractManager(object):
             return True, address[0]
 
     def getContractInfo(self, contractAddress):
-        print ()
         contract_info = self.client.getTransactionByHash(contractAddress)
         contract_abi = self.data_parser.contract_abi
         return contract_abi, contract_info
@@ -79,8 +78,8 @@ class ContractManager(object):
         memo = "tx:" + contract_info["transactionHash"]
 
         # 把部署结果存入文件备查
-        ContractNote.save_address(contract_name, contract_info["transactionHash"], int(contract_info["blockNumber"], 16), memo)
-        ContractNote.save_contract_address(contract_name, contract_info["transactionHash"])
+        ContractNote.save_address(contract_name, contract_info["contractAddress"], int(contract_info["blockNumber"], 16), memo)
+        ContractNote.save_contract_address(contract_name, contract_info["contractAddress"])
 
         return contract_abi, contract_info
 
