@@ -18,8 +18,6 @@ api = restful.Api(app)
 api.add_resource(Upload, '/astronomy/upload/<item_Element>')
 
 
-
-
 if __name__ == '__main__':
     app.run(debug=True)
 
