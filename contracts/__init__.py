@@ -107,12 +107,6 @@ class ContractManager(object):
                     i = i + 1
                     print("{}): log name: {} , data: {}".format(i, log['eventname'], log['eventdata']))
 
-            # 获取对应的交易数据，解析出调用方法名和参数
-            txresponse = self.client.getTransactionByHash(txhash)
-            inputresult = self.data_parser.parse_transaction_input(txresponse['input'])
-            print("transaction input parse:", txhash)
-            print(inputresult)
-
         return txhash
 
     def call(self, contract_address, contract_abi, method, args=None):
