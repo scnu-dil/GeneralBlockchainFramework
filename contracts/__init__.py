@@ -77,8 +77,8 @@ class ContractManager(object):
         memo = "tx:" + contract_info["transactionHash"]
 
         # 把部署结果存入文件备查
-        ContractNote.save_address(contract_name, contract_info["transactionHash"], int(contract_info["blockNumber"], 16), memo)
-        ContractNote.save_contract_address(contract_name, contract_info["transactionHash"])
+        ContractNote.save_address(contract_name, contract_info["contractAddress"], int(contract_info["blockNumber"], 16), memo)
+        ContractNote.save_contract_address(contract_name, contract_info["contractAddress"])
 
         return contract_abi, contract_info
 
