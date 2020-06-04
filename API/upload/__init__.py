@@ -3,7 +3,7 @@
 
 import flask_restful as restful
 from flask_restful import reqparse, abort, Api, Resource
-from static import tianwen
+from API.static import tianwen
 
 parser = reqparse.RequestParser()
 parser.add_argument('item_N_line', type=str)
