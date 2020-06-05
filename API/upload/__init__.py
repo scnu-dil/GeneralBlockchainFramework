@@ -38,11 +38,11 @@ class Upload(Resource):
 
     # if TEMS[item_Element] is null return 404 error msg and 404
     def get(self, item_Element):
-        self.abort_if_item_exist(item_Element)
+        # self.abort_if_item_exist(item_Element)
         return ITEMS[item_Element]
 
     def put(self, item_Element):
-        self.abort_if_item_exist(item_Element)
+        # self.abort_if_item_exist(item_Element)
         args = parser.parse_args()
 
         item_N_line = self.get_args(args,item_Element,'item_N_line')
