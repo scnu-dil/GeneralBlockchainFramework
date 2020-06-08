@@ -18,6 +18,10 @@ class Tianwen(object):
         else:
             self.contract_abi, self.contractAddress = self.contractManager.getContractInfo(self.contractAddress)
 
+    def getTransactionByHash(self, tsHash):
+        TsInfo = self.contractManager.getTransactoinInfo(tsHash)
+        return TsInfo
+
     # try, catch
     def constructJsonRecord(self, item_Element, item_N_line, item_O_XH, item_O_XFe, item_O_loge, item_C_XH, item_C_XFe, item_C_loge):
         record = {
