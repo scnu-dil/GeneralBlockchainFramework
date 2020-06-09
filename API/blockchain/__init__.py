@@ -22,14 +22,14 @@ class Blockchain(Resource):
         args = parser.parse_args()
 
         if method == "getTransactionByHash":
-            hash = self.get_args(args, 'hash')
+            tsHash = self.get_args(args, 'tsHash')
             print ("hash:", hash)
-            Msg, status = self.getTransactionByHash()
+            Msg, status = self.getTransactionByHash(tsHash)
 
         return Msg, status
 
-    def getTransactionByHash(self):
-        TransactionInfo = self.client.getTransactionByHash(hash)
+    def getTransactionByHash(self, tsHash):
+        TransactionInfo = self.client.getTransactionByHash(tsHash)
         return TransactionInfo, 200
 
 
