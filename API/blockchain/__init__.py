@@ -24,7 +24,7 @@ class Blockchain(Resource):
 
         if method == "getTransactionByHash":
             tsHash = self.get_args(args, 'tsHash')
-            print ("hash:", hash)
+            print ("hash:", tsHash)
             sys.stdout.flush()
             Msg, status = self.getTransactionByHash(tsHash)
 
