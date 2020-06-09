@@ -17,7 +17,7 @@ api = restful.Api(app)
 
 
 api.add_resource(Upload, '/upload/<item_Element>')
-api.add_resource(Blockchain, '/blockchain')
+api.add_resource(Blockchain, '/blockchain/<method>')
 
 #  malformed url rule:
 
