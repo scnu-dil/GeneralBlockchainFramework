@@ -7,6 +7,7 @@ from contracts.client.bcosclient import BcosClient
 import sys
 
 parser = reqparse.RequestParser()
+parser.add_argument('tsHash', type=str)
 
 class Blockchain(Resource):
     def __init__(self):
