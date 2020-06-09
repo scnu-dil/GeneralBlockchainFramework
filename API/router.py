@@ -17,8 +17,9 @@ api = restful.Api(app)
 
 
 api.add_resource(Upload, '/upload/<item_Element>')
-api.add_resource(Blockchain, '/blockchain>')
+api.add_resource(Blockchain, '/blockchain')
 
+#  malformed url rule:
 
 if __name__ == '__main__':
     app.run(debug=True)
