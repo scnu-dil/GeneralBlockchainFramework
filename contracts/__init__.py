@@ -11,7 +11,7 @@ from contracts.eth_utils import to_checksum_address
 from contracts.client.contractnote import ContractNote
 from contracts.client.common.transaction_common import TransactionCommon
 from client.bcoserror import CompilerNotFound, CompileError
-import json
+
 
 class ContractManager(object):
 
@@ -53,10 +53,7 @@ class ContractManager(object):
         contract_abi = self.data_parser.contract_abi
         return contract_abi, contractAddress
 
-    def getTransactoinInfo(self, tsHash):
-        TsInfo = self.client.getTransactionByHash(tsHash)
-        TsInfo = json.dumps(TsInfo)
-        return TsInfo
+
 
 
     def deploy(self):
