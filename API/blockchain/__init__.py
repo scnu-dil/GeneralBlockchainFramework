@@ -4,6 +4,7 @@
 import flask_restful as restful
 from flask_restful import reqparse, abort, Api, Resource
 from contracts.client.bcosclient import BcosClient
+import sys
 
 parser = reqparse.RequestParser()
 
@@ -24,6 +25,7 @@ class Blockchain(Resource):
         if method == "getTransactionByHash":
             tsHash = self.get_args(args, 'tsHash')
             print ("hash:", hash)
+            sys.stdout.flush()
             Msg, status = self.getTransactionByHash(tsHash)
 
         return Msg, status
