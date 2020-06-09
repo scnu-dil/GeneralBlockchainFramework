@@ -19,15 +19,16 @@ class Blockchain(Resource):
     def get(self, method):
         Msg = "method not found"
         status = 404
+        args = parser.parse_args()
 
         if method == "getTransactionByHash":
+            hash = self.get_args(args, 'hash')
+            print ("hash:", hash)
             Msg, status = self.getTransactionByHash()
 
         return Msg, status
 
     def getTransactionByHash(self):
-        args = parser.parse_args()
-        hash = self.get_args(args, 'hash')
         TransactionInfo = self.client.getTransactionByHash(hash)
         return TransactionInfo, 200
 
