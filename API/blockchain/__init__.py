@@ -13,7 +13,6 @@ class Blockchain(Resource):
     def __init__(self):
         self.client = BcosClient()
 
-
     def get_args(self, args, key):
         temp = args.get(key)
         return temp
@@ -34,6 +33,18 @@ class Blockchain(Resource):
     def getTransactionByHash(self, tsHash):
         TransactionInfo = self.client.getTransactionByHash(tsHash)
         return TransactionInfo, 200
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # def getTransactionByHash(self, hash):
