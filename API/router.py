@@ -11,7 +11,11 @@ import flask_restful as restful
 from API.upload import *
 from API.static import tianwen, traffic
 from API.blockchain import *
-from API.traffic import Traffic
+
+
+from API.traffic.User import User
+from API.traffic.Record import Record
+from API.traffic.KPI import KPI
 
 app = Flask(__name__)
 api = restful.Api(app)
@@ -19,7 +23,9 @@ api = restful.Api(app)
 
 api.add_resource(Upload, '/upload/<item_Element>')
 api.add_resource(Blockchain, '/<method>')
-api.add_resource(Traffic, '/traffic')
+api.add_resource(User, '/traffic/api/user')
+api.add_resource(Record, '/traffic/api/record')
+api.add_resource(KPI, '/traffic/api/kpi')
 
 
 
