@@ -36,14 +36,3 @@ class Record(Resource):
         }
         return response, 200
 
-
-app = Flask(__name__)
-api = restful.Api(app)
-
-api.add_resource(file_uplaod, '/')
-
-#  malformed url rule:
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
