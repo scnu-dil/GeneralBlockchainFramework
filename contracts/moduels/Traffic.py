@@ -28,6 +28,8 @@ class Traffic(object):
         }
         return json.dumps(Temp)
 
+
+    # insert update
     def set(self, UUID, Url, FileMd5, Size, StorageIP, RemoteFileId, GroupName):
         JsonRecord = self.constructJsonRecord(UUID, Url, FileMd5, Size, StorageIP, RemoteFileId, GroupName)
         args = [UUID, JsonRecord]

@@ -40,3 +40,18 @@ api.add_resource(file_uplaod, '/')
 if __name__ == '__main__':
     app.run(debug=True)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
